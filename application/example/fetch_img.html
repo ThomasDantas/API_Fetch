@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title> Data/API 1 </title>
+</head>
+
+<body>
+
+    <img src="" id="rainbow" width="480" />
+    <script>
+        console.log("sobre o rainbow")
+
+        catchRainbow()
+            .then(response => {
+                console.log(`yay`)
+            })
+            .catch(error => {
+                console.log("error");
+                console.error(error);
+            });
+        async function catchRainbow() {
+            const response = await fetch(`rainbow.jpg`);
+            const blob = await response.blob();
+            document.getElementById(`rainbow`).src = URL.createObjectURL(blob);
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>
